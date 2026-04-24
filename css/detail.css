@@ -1,0 +1,373 @@
+/* ============================================================
+   DETAIL.CSS — Graphic Tech
+   Scope: overlay panel content, /pages/*.html fragments
+          (loaded dynamically into .overlay-body)
+   ============================================================ */
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+.detail-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.detail-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.detail-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+.detail-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ============================================================
+   COVER IMAGE
+   ============================================================ */
+.detail-cover {
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 48px;
+  background: var(--bg-3);
+}
+.detail-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.detail-cover-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-3) 0%, var(--card-bg) 100%);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  gap: 10px;
+}
+.detail-cover-placeholder svg {
+  width: 28px; height: 28px; opacity: 0.3;
+}
+
+/* ============================================================
+   SECTION BLOCKS
+   ============================================================ */
+.detail-section {
+  margin-bottom: 48px;
+}
+.detail-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detail-section-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.detail-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.detail-body p + p { margin-top: 14px; }
+.detail-body strong { color: var(--text); font-weight: 700; }
+
+/* ============================================================
+   FEATURE LIST / ICON LIST
+   ============================================================ */
+.detail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
+}
+.detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.detail-list li::before {
+  content: '→';
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-weight: 700;
+}
+.detail-list li strong { color: var(--text); }
+
+/* ============================================================
+   STATS ROW
+   ============================================================ */
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+.detail-stat {
+  background: var(--card-bg);
+  padding: 28px 20px;
+  text-align: center;
+}
+.detail-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.detail-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   PROCESS STEPS
+   ============================================================ */
+.detail-process {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+.detail-step {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 32px;
+  position: relative;
+}
+.detail-step:last-child { padding-bottom: 0; }
+.detail-step::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.detail-step:last-child::before { display: none; }
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.step-body { padding-top: 8px; }
+.step-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   TAG CHIPS
+   ============================================================ */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.detail-tag {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.detail-tag.highlight {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: var(--accent);
+}
+
+/* ============================================================
+   ICON GRID (services/tools overview)
+   ============================================================ */
+.detail-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 4px;
+}
+.detail-icon-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  transition: border-color 0.25s ease;
+}
+.detail-icon-card:hover { border-color: var(--accent); }
+.dic-icon {
+  width: 36px; height: 36px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.dic-icon svg { width: 100%; height: 100%; }
+.dic-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.dic-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   TEAM GRID (About page)
+   ============================================================ */
+.detail-team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 4px;
+}
+.team-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.team-avatar {
+  width: 100%;
+  height: 180px;
+  background: var(--bg-3);
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.team-avatar-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar-placeholder svg {
+  width: 48px; height: 48px;
+  color: var(--border);
+}
+.team-info { padding: 20px; }
+.team-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.team-role {
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   CTA BLOCK (bottom of each page)
+   ============================================================ */
+.detail-cta {
+  margin-top: 56px;
+  padding: 40px 36px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.detail-cta::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 300px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+}
+.detail-cta h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+}
+.detail-cta p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  position: relative;
+}
+.detail-cta .btn { position: relative; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.detail-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 40px 0;
+}
+
+/* ============================================================
+   RESPONSIVE (overlay panel is already narrow on mobile)
+   ============================================================ */
+@media (max-width: 600px) {
+  .detail-stats       { grid-template-columns: 1fr; }
+  .detail-icon-grid   { grid-template-columns: 1fr; }
+  .detail-team        { grid-template-columns: 1fr; }
+  .detail-title       { font-size: 1.8rem; }
+  .detail-cover       { height: 180px; }
+  .detail-cta         { padding: 28px 20px; }
+}

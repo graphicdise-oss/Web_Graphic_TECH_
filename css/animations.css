@@ -1,0 +1,159 @@
+/* ============================================================
+   ANIMATIONS.CSS — Graphic Tech
+   Scope: keyframes, entrance animations, scroll reveals,
+          hover effects, loading states
+   ============================================================ */
+
+/* --- Keyframes --- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.2); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+  50%       { box-shadow: 0 0 48px var(--accent-glow); }
+}
+
+@keyframes borderDraw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* --- Scroll Reveal Utilities --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.fade-in.visible { opacity: 1; }
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Delay Utilities --- */
+.delay-1 { transition-delay: 0.12s !important; }
+.delay-2 { transition-delay: 0.24s !important; }
+.delay-3 { transition-delay: 0.36s !important; }
+.delay-4 { transition-delay: 0.48s !important; }
+.delay-5 { transition-delay: 0.60s !important; }
+
+/* --- Hero Entrance (triggered by JS adding .loaded to body) --- */
+body.loaded .hero-eyebrow { animation: fadeUp 0.7s ease 0.1s both; }
+body.loaded .hero-title    { animation: fadeUp 0.8s ease 0.25s both; }
+body.loaded .hero-sub      { animation: fadeUp 0.7s ease 0.4s both; }
+body.loaded .hero-actions  { animation: fadeUp 0.7s ease 0.55s both; }
+body.loaded .hero-scroll-hint { animation: fadeIn 0.7s ease 1s both; }
+
+/* Remove the initial opacity-0 after JS fires */
+body.loaded .fade-up { opacity: 0; transform: translateY(32px); }
+
+/* --- Scroll Line Pulse --- */
+.scroll-line { animation: scrollPulse 2.2s ease-in-out infinite; }
+
+/* --- Service Card Stagger --- */
+.services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { transition-delay: 0.10s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.15s; }
+.services-grid .service-card:nth-child(4) { transition-delay: 0.20s; }
+.services-grid .service-card:nth-child(5) { transition-delay: 0.25s; }
+.services-grid .service-card:nth-child(6) { transition-delay: 0.30s; }
+
+/* --- Portfolio Item Stagger --- */
+.portfolio-item:nth-child(1) { transition-delay: 0.04s; }
+.portfolio-item:nth-child(2) { transition-delay: 0.08s; }
+.portfolio-item:nth-child(3) { transition-delay: 0.12s; }
+.portfolio-item:nth-child(4) { transition-delay: 0.16s; }
+.portfolio-item:nth-child(5) { transition-delay: 0.20s; }
+.portfolio-item:nth-child(6) { transition-delay: 0.24s; }
+
+/* --- Accent Glow on hover for buttons --- */
+.btn-primary:hover {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- Ticker pause on hover --- */
+.ticker-section:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* --- Overlay panel entrance shimmer --- */
+.overlay.open .overlay-panel {
+  animation: none;
+}
+
+/* --- Page detail section entrance (used in /pages/*.html) --- */
+.detail-hero    { animation: fadeUp  0.6s ease 0.05s both; }
+.detail-section { animation: fadeUp  0.6s ease 0.15s both; }
+.detail-grid    { animation: scaleIn 0.5s ease 0.25s both; }
+.detail-cta     { animation: fadeUp  0.6s ease 0.35s both; }
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ticker-track { animation: none; }
+}

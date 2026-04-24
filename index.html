@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Graphic Tech — Creative & Technology Studio ออกแบบและพัฒนาโซลูชันครบวงจร">
+  <title>Graphic Tech — Creative & Technology Studio</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="assets/images/brand/logo-white.png" alt="Graphic Tech" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">Graphic<span class="accent">Tech</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+        <li><a href="#contact" class="btn btn-primary nav-cta">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-bg" style="background-image: url('assets/images/brand/bg-hero.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">Creative × Technology Studio</p>
+      <h1 class="hero-title fade-up delay-1">
+        We Design.<br>We Build.<br><span class="accent">We Deliver.</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        ออกแบบและพัฒนาโซลูชันครบวงจร ตั้งแต่ Brand Identity จนถึงระบบ ERP
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#services" class="btn btn-primary">ดูบริการทั้งหมด</a>
+        <a href="#portfolio" class="btn btn-outline">ผลงานของเรา</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ TICKER ═══ -->
+  <div class="ticker-section">
+    <div class="ticker-track" id="tickerTrack">
+      <span>UI/UX Design</span><span class="ticker-dot">◆</span>
+      <span>Graphic Design</span><span class="ticker-dot">◆</span>
+      <span>Web Development</span><span class="ticker-dot">◆</span>
+      <span>Digital Marketing</span><span class="ticker-dot">◆</span>
+      <span>ERP System</span><span class="ticker-dot">◆</span>
+      <span>Branding</span><span class="ticker-dot">◆</span>
+      <span>UI/UX Design</span><span class="ticker-dot">◆</span>
+      <span>Graphic Design</span><span class="ticker-dot">◆</span>
+      <span>Web Development</span><span class="ticker-dot">◆</span>
+      <span>Digital Marketing</span><span class="ticker-dot">◆</span>
+      <span>ERP System</span><span class="ticker-dot">◆</span>
+      <span>Branding</span><span class="ticker-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">บริการของเรา</h2>
+      </div>
+      <div class="services-grid">
+
+        <article class="service-card" data-page="service-uiux" tabindex="0" role="button" aria-label="UI/UX Design">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3 class="service-title">UI/UX Design</h3>
+          <p class="service-desc">ออกแบบประสบการณ์ผู้ใช้ที่ใช้งานง่าย สวยงาม และตอบโจทย์ธุรกิจ</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+        <article class="service-card" data-page="service-graphic" tabindex="0" role="button" aria-label="Graphic Design">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="14.5" r="2.5"/>
+              <path d="M17 21v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1"/><path d="M22 11l-3-3-7 7-3-3"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Graphic Design</h3>
+          <p class="service-desc">สร้างสรรค์งานกราฟิกที่โดดเด่น ทั้งสื่อดิจิทัลและสิ่งพิมพ์</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+        <article class="service-card" data-page="service-web" tabindex="0" role="button" aria-label="Web Development">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">พัฒนาเว็บไซต์และแอปพลิเคชันที่รวดเร็ว ปลอดภัย รองรับทุกอุปกรณ์</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+        <article class="service-card" data-page="service-marketing" tabindex="0" role="button" aria-label="Digital Marketing">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-desc">วางกลยุทธ์การตลาดดิจิทัลที่ขับเคลื่อนด้วยข้อมูล เพิ่ม ROI อย่างจริงจัง</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+        <article class="service-card" data-page="service-erp" tabindex="0" role="button" aria-label="ERP System">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <h3 class="service-title">ERP System</h3>
+          <p class="service-desc">ระบบจัดการองค์กรครบวงจร ช่วยให้ธุรกิจทำงานได้อย่างมีประสิทธิภาพ</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+        <article class="service-card" data-page="service-branding" tabindex="0" role="button" aria-label="Branding">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Branding</h3>
+          <p class="service-desc">สร้างตัวตนและเอกลักษณ์ของแบรนด์ที่จดจำได้ง่ายและแข็งแกร่ง</p>
+          <span class="service-arrow">→</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO ═══ -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Work</p>
+        <h2 class="section-title">ผลงานที่ผ่านมา</h2>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- populated by data-portfolio.js + main.js -->
+      </div>
+      <div class="portfolio-more">
+        <button class="btn btn-outline" id="loadMoreBtn">โหลดเพิ่มเติม</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-text">
+          <p class="section-label">Let's Talk</p>
+          <h2 class="section-title">พร้อมเริ่มโปรเจกต์ใหม่?</h2>
+          <p class="contact-desc">
+            บอกเราเรื่องของคุณ เราพร้อมรับฟังและออกแบบทางออกที่ดีที่สุดสำหรับธุรกิจของคุณ
+          </p>
+        </div>
+        <div class="contact-action">
+          <a href="mailto:hello@graphictech.co.th" class="btn btn-primary btn-large">
+            ติดต่อเรา →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-text footer-logo">Graphic<span class="accent">Tech</span></span>
+          <p>Creative & Technology Studio</p>
+          <p class="footer-tagline">เราสร้างสรรค์ เราพัฒนา เราส่งมอบ</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>บริการ</h4>
+            <ul>
+              <li><a href="#" data-page="service-uiux">UI/UX Design</a></li>
+              <li><a href="#" data-page="service-graphic">Graphic Design</a></li>
+              <li><a href="#" data-page="service-web">Web Development</a></li>
+              <li><a href="#" data-page="service-marketing">Digital Marketing</a></li>
+              <li><a href="#" data-page="service-erp">ERP System</a></li>
+              <li><a href="#" data-page="service-branding">Branding</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>บริษัท</h4>
+            <ul>
+              <li><a href="#" data-page="about">About Us</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Graphic Tech. All rights reserved.</p>
+        <p class="footer-credit">Designed & Built with ♥ by Graphic Tech Team</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ OVERLAY PANEL ═══ -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="overlay-backdrop" id="overlayBackdrop"></div>
+    <div class="overlay-panel" id="overlayPanel">
+      <button class="overlay-close" id="overlayClose" aria-label="ปิด">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="overlay-body" id="overlayContent">
+        <div class="overlay-loading">
+          <div class="spinner"></div>
+          <p>กำลังโหลด...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data-portfolio.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
