@@ -56,9 +56,7 @@
         </div>`;
     }
 
-    overlayPanel.scrollTop = 0;
-    const body = overlayPanel.querySelector('.overlay-body');
-    if (body) body.scrollTop = 0;
+    overlayContent.scrollTop = 0;
   }
 
   function showOverlay() {

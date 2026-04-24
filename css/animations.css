@@ -105,8 +105,8 @@ body.loaded .hero-sub      { animation: fadeUp 0.7s ease 0.4s both; }
 body.loaded .hero-actions  { animation: fadeUp 0.7s ease 0.55s both; }
 body.loaded .hero-scroll-hint { animation: fadeIn 0.7s ease 1s both; }
 
-/* Remove the initial opacity-0 after JS fires */
-body.loaded .fade-up { opacity: 0; transform: translateY(32px); }
+/* Reset only elements not yet visible (hero uses CSS animation, not this) */
+body.loaded .fade-up:not(.visible) { opacity: 0; transform: translateY(32px); }
 
 /* --- Scroll Line Pulse --- */
 .scroll-line { animation: scrollPulse 2.2s ease-in-out infinite; }

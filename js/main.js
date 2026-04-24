@@ -54,9 +54,11 @@
   });
 
   /* ── Scroll-reveal (IntersectionObserver) ── */
-  const revealEls = document.querySelectorAll(
-    '.fade-up, .fade-in, .slide-in-right, .scale-in'
-  );
+  /* Exclude hero children — they use CSS animation via body.loaded instead */
+  const revealEls = Array.from(
+    document.querySelectorAll('.fade-up, .fade-in, .slide-in-right, .scale-in')
+  ).filter(function (el) { return !el.closest('.hero'); });
+
   if ('IntersectionObserver' in window && revealEls.length) {
     const revealObs = new IntersectionObserver(
       function (entries) {
