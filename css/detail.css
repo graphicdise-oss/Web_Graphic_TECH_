@@ -1,38 +1,51 @@
 /* ============================================================
-   DETAIL.CSS — Graphic Tech
+   DETAIL.CSS — Graphic TECH
    Scope: overlay panel content, /pages/*.html fragments
           (loaded dynamically into .overlay-body)
+   Theme: Light / White-Blue Corporate Premium
    ============================================================ */
 
 /* ============================================================
    PAGE HEADER
    ============================================================ */
 .detail-header {
-  margin-bottom: 48px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: 44px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--line);
 }
 .detail-label {
-  display: inline-block;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  background: var(--primary-soft);
+  border-radius: var(--r-pill);
+  font-size: .74rem;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  font-weight: 400;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.detail-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
 }
 .detail-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.9rem, 4.4vw, 2.7rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  letter-spacing: -.025em;
+  line-height: 1.14;
   margin-bottom: 16px;
+  color: var(--ink);
 }
 .detail-subtitle {
   font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  max-width: 520px;
+  color: var(--body);
+  line-height: 1.8;
+  max-width: 560px;
 }
 
 /* ============================================================
@@ -40,11 +53,13 @@
    ============================================================ */
 .detail-cover {
   width: 100%;
-  height: 260px;
-  border-radius: var(--radius);
+  height: 280px;
+  border-radius: var(--r-lg);
   overflow: hidden;
-  margin-bottom: 48px;
-  background: var(--bg-3);
+  margin-bottom: 44px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
 }
 .detail-cover img {
   width: 100%; height: 100%;
@@ -55,47 +70,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg-3) 0%, var(--card-bg) 100%);
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  background: linear-gradient(150deg, var(--blue-50) 0%, #fff 100%);
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  gap: 10px;
+  gap: 12px;
 }
 .detail-cover-placeholder svg {
-  width: 28px; height: 28px; opacity: 0.3;
+  width: 30px; height: 30px; color: var(--blue-300);
 }
 
 /* ============================================================
    SECTION BLOCKS
    ============================================================ */
-.detail-section {
-  margin-bottom: 48px;
-}
+.detail-section { margin-bottom: 44px; }
 .detail-section-title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  color: var(--ink);
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .detail-section-title::before {
   content: '';
   display: block;
-  width: 4px;
-  height: 20px;
-  background: var(--accent);
-  border-radius: 2px;
+  width: 5px;
+  height: 22px;
+  background: var(--grad-primary);
+  border-radius: 3px;
   flex-shrink: 0;
 }
 .detail-body {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.8;
+  font-size: .96rem;
+  color: var(--body);
+  line-height: 1.85;
 }
 .detail-body p + p { margin-top: 14px; }
-.detail-body strong { color: var(--text); font-weight: 700; }
+.detail-body strong { color: var(--ink); font-weight: 700; }
 
 /* ============================================================
    FEATURE LIST / ICON LIST
@@ -104,25 +118,29 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
   margin-top: 4px;
 }
 .detail-list li {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.6;
+  font-size: .93rem;
+  color: var(--body);
+  line-height: 1.7;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
 }
 .detail-list li::before {
-  content: '→';
-  color: var(--accent);
+  content: '';
   flex-shrink: 0;
-  margin-top: 1px;
-  font-weight: 700;
+  margin-top: 5px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--grad-primary);
 }
-.detail-list li strong { color: var(--text); }
+.detail-list li strong { color: var(--ink); }
 
 /* ============================================================
    STATS ROW
@@ -130,30 +148,28 @@
 .detail-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 48px;
+  gap: 16px;
+  margin-bottom: 44px;
 }
 .detail-stat {
-  background: var(--card-bg);
-  padding: 28px 20px;
+  background: linear-gradient(150deg, var(--blue-50), #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 26px 18px;
   text-align: center;
 }
 .detail-stat-value {
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 700;
-  color: var(--accent);
-  letter-spacing: -0.03em;
+  color: var(--primary-dark);
+  letter-spacing: -.02em;
   line-height: 1;
   margin-bottom: 8px;
 }
 .detail-stat-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  font-size: .78rem;
+  color: var(--muted);
+  letter-spacing: .03em;
 }
 
 /* ============================================================
@@ -168,7 +184,7 @@
 .detail-step {
   display: flex;
   gap: 20px;
-  padding-bottom: 32px;
+  padding-bottom: 30px;
   position: relative;
 }
 .detail-step:last-child { padding-bottom: 0; }
@@ -176,36 +192,37 @@
   content: '';
   position: absolute;
   left: 19px;
-  top: 40px;
+  top: 42px;
   bottom: 0;
   width: 1px;
-  background: var(--border);
+  background: var(--line);
 }
 .detail-step:last-child::before { display: none; }
 .step-num {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
+  background: var(--primary-soft);
+  border: 1px solid var(--line-2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: .8rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-dark);
   flex-shrink: 0;
 }
 .step-body { padding-top: 8px; }
 .step-title {
-  font-size: 0.95rem;
+  font-size: .97rem;
   font-weight: 700;
+  color: var(--ink);
   margin-bottom: 6px;
 }
 .step-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.7;
+  font-size: .89rem;
+  color: var(--body);
+  line-height: 1.75;
 }
 
 /* ============================================================
@@ -214,23 +231,24 @@
 .detail-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 9px;
   margin-top: 4px;
 }
 .detail-tag {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  padding: 6px 14px;
-  border-radius: 100px;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+  font-size: .8rem;
+  letter-spacing: .02em;
+  padding: 7px 15px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--body);
   white-space: nowrap;
 }
 .detail-tag.highlight {
-  background: rgba(168, 85, 247, 0.1);
-  border-color: rgba(168, 85, 247, 0.3);
-  color: var(--accent);
+  background: var(--primary-soft);
+  border-color: var(--blue-200);
+  color: var(--primary-dark);
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -243,28 +261,36 @@
   margin-top: 4px;
 }
 .detail-icon-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 20px;
-  transition: border-color 0.25s ease;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px 22px;
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
 }
-.detail-icon-card:hover { border-color: var(--accent); }
+.detail-icon-card:hover {
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
 .dic-icon {
-  width: 36px; height: 36px;
-  color: var(--accent);
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
   margin-bottom: 14px;
 }
-.dic-icon svg { width: 100%; height: 100%; }
+.dic-icon svg { width: 21px; height: 21px; }
 .dic-title {
-  font-size: 0.95rem;
+  font-size: .96rem;
   font-weight: 700;
+  color: var(--ink);
   margin-bottom: 8px;
 }
 .dic-desc {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+  font-size: .84rem;
+  color: var(--body);
+  line-height: 1.7;
 }
 
 /* ============================================================
@@ -273,19 +299,21 @@
 .detail-team {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 18px;
   margin-top: 4px;
 }
 .team-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   overflow: hidden;
+  transition: box-shadow var(--t), transform var(--t);
 }
+.team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .team-avatar {
   width: 100%;
-  height: 180px;
-  background: var(--bg-3);
+  height: 170px;
+  background: linear-gradient(150deg, var(--blue-50), #fff);
   overflow: hidden;
 }
 .team-avatar img {
@@ -299,53 +327,54 @@
   justify-content: center;
 }
 .team-avatar-placeholder svg {
-  width: 48px; height: 48px;
-  color: var(--border);
+  width: 46px; height: 46px;
+  color: var(--blue-300);
 }
-.team-info { padding: 20px; }
+.team-info { padding: 18px 20px; }
 .team-name {
-  font-size: 0.95rem;
+  font-size: .95rem;
   font-weight: 700;
+  color: var(--ink);
   margin-bottom: 4px;
 }
 .team-role {
-  font-size: 0.8rem;
-  color: var(--accent);
-  letter-spacing: 0.08em;
+  font-size: .8rem;
+  color: var(--primary);
+  font-weight: 500;
 }
 
 /* ============================================================
    CTA BLOCK (bottom of each page)
    ============================================================ */
 .detail-cta {
-  margin-top: 56px;
-  padding: 40px 36px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  margin-top: 52px;
+  padding: 42px 36px;
+  background: var(--grad-deep);
+  border-radius: var(--r-lg);
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 .detail-cta::before {
   content: '';
   position: absolute;
-  top: -60px; left: 50%; transform: translateX(-50%);
-  width: 300px; height: 300px;
-  background: var(--accent-glow);
+  top: -70px; left: 50%; transform: translateX(-50%);
+  width: 320px; height: 320px;
+  background: rgba(255, 255, 255, .12);
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(60px);
 }
 .detail-cta h3 {
   font-size: 1.4rem;
   font-weight: 700;
+  color: #fff;
   margin-bottom: 10px;
   position: relative;
 }
 .detail-cta p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: .92rem;
+  color: rgba(255, 255, 255, .82);
   margin-bottom: 24px;
   position: relative;
 }
@@ -356,7 +385,7 @@
    ============================================================ */
 .detail-divider {
   height: 1px;
-  background: var(--border);
+  background: var(--line);
   margin: 40px 0;
 }
 
@@ -367,7 +396,7 @@
   .detail-stats       { grid-template-columns: 1fr; }
   .detail-icon-grid   { grid-template-columns: 1fr; }
   .detail-team        { grid-template-columns: 1fr; }
-  .detail-title       { font-size: 1.8rem; }
+  .detail-title       { font-size: 1.7rem; }
   .detail-cover       { height: 180px; }
-  .detail-cta         { padding: 28px 20px; }
+  .detail-cta         { padding: 30px 22px; }
 }

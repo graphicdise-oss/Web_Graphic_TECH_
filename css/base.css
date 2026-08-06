@@ -1,0 +1,342 @@
+/* ============================================================
+   BASE.CSS — Graphic TECH
+   Design tokens, reset, typography, layout primitives, utilities
+   Theme: Light / White-Blue Corporate Premium
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS
+   ------------------------------------------------------------ */
+:root {
+  /* Brand palette (จากธีมสีที่กำหนด) */
+  --blue-50:   #E3F2FD;
+  --blue-100:  #D3E9FC;
+  --blue-200:  #90CAF9;
+  --blue-300:  #64B5F6;
+  --blue-400:  #42A5F5;
+  --blue-500:  #2196F3;   /* Primary */
+  --blue-600:  #1976D2;
+  --blue-700:  #1565C0;
+  --blue-900:  #0D47A1;   /* Deep / Corporate */
+
+  /* Semantic */
+  --primary:        var(--blue-500);
+  --primary-dark:   var(--blue-600);
+  --primary-deep:   var(--blue-900);
+  --primary-soft:   var(--blue-50);
+  --primary-mid:    var(--blue-200);
+
+  /* Neutrals */
+  --ink:        #0C1B33;
+  --ink-2:      #16294A;
+  --body:       #4C5F7C;
+  --muted:      #7E90AB;
+  --white:      #FFFFFF;
+  --surface:    #FFFFFF;
+  --surface-2:  #F6FAFF;
+  --surface-3:  #EEF5FE;
+  --line:       #E4ECF7;
+  --line-2:     #D8E5F5;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-900) 100%);
+  --grad-soft:    linear-gradient(135deg, var(--blue-50) 0%, #FFFFFF 60%);
+  --grad-deep:    linear-gradient(140deg, #0D47A1 0%, #1565C0 45%, #2196F3 100%);
+  --grad-text:    linear-gradient(100deg, var(--blue-600) 0%, var(--blue-900) 100%);
+
+  /* Elevation */
+  --shadow-xs:   0 1px 2px rgba(13, 71, 161, .06);
+  --shadow-sm:   0 4px 16px rgba(13, 71, 161, .06);
+  --shadow-md:   0 14px 34px rgba(13, 71, 161, .09);
+  --shadow-lg:   0 28px 64px rgba(13, 71, 161, .13);
+  --shadow-blue: 0 14px 30px rgba(33, 150, 243, .32);
+  --shadow-ring: 0 0 0 1px var(--line);
+
+  /* Shape */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease:      cubic-bezier(.4, 0, .2, 1);
+  --ease-out:  cubic-bezier(.16, 1, .3, 1);
+  --t-fast:    .18s var(--ease);
+  --t:         .3s var(--ease);
+  --t-slow:    .55s var(--ease-out);
+
+  /* Type */
+  --font: 'Prompt', 'Noto Sans Thai', 'Sarabun', -apple-system, BlinkMacSystemFont,
+          'Segoe UI', sans-serif;
+  /* Display face for headlines/numerals/wordmark — falls back to Thai body
+     face automatically per-glyph, so Thai text stays in --font. */
+  --font-display: 'Sora', var(--font);
+
+  /* Layout */
+  --max-w:   1240px;
+  --max-w-n: 1080px;
+  --gutter:  24px;
+  --nav-h:   76px;
+}
+
+/* ------------------------------------------------------------
+   2. RESET
+   ------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 20px);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--body);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a       { color: inherit; text-decoration: none; }
+img,svg { max-width: 100%; display: block; }
+ul, ol  { list-style: none; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button  { background: none; border: none; cursor: pointer; }
+table   { border-collapse: collapse; width: 100%; }
+
+::selection { background: var(--blue-200); color: var(--primary-deep); }
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 10px; height: 10px; }
+::-webkit-scrollbar-track  { background: var(--surface-2); }
+::-webkit-scrollbar-thumb  { background: var(--blue-200); border-radius: 99px; border: 3px solid var(--surface-2); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-400); }
+
+/* ------------------------------------------------------------
+   3. TYPOGRAPHY
+   ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); font-weight: 700; line-height: 1.14; }
+h2 { font-size: clamp(1.75rem, 3.4vw, 2.75rem); font-weight: 700; line-height: 1.2; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+h4 { font-size: 1.1rem; }
+p  { color: var(--body); }
+
+/* Numerals read better in the display face — used for stats, prices, indices */
+.num-display { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+
+strong, b { font-weight: 600; color: var(--ink-2); }
+
+.text-gradient {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.accent { color: var(--primary); }
+
+/* ------------------------------------------------------------
+   4. LAYOUT PRIMITIVES
+   ------------------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--narrow { max-width: var(--max-w-n); }
+
+.section        { padding: clamp(64px, 8vw, 110px) 0; position: relative; }
+.section--tight { padding: clamp(48px, 5vw, 72px) 0; }
+.section--soft  { background: var(--surface-2); }
+.section--tint  { background: linear-gradient(180deg, #FFF 0%, var(--surface-2) 100%); }
+.section--deep  { background: var(--grad-deep); color: rgba(255,255,255,.86); }
+.section--deep h1,
+.section--deep h2,
+.section--deep h3 { color: #fff; }
+
+/* Section head */
+.sec-head            { max-width: 760px; margin-bottom: clamp(38px, 5vw, 60px); }
+.sec-head--center    { margin-inline: auto; text-align: center; }
+.sec-head .eyebrow   { margin-bottom: 16px; }
+.sec-head h2         { margin-bottom: 18px; }
+.sec-head p          { font-size: 1.02rem; }
+
+/* Asymmetric variant: heading left, supporting copy set apart on the right —
+   used instead of sec-head--center where a centered block would just repeat
+   the same treatment as every other section. */
+.sec-head--split {
+  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+.sec-head--split .sec-head__main { max-width: 480px; }
+.sec-head--split h2 { margin-bottom: 0; }
+.sec-head__aside {
+  max-width: 360px;
+  padding-bottom: 4px;
+  border-left: 2px solid var(--line);
+  padding-left: 22px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 16px 7px 12px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, .18);
+}
+.eyebrow--light { background: rgba(255,255,255,.14); color: #fff; }
+.eyebrow--light::before { background: var(--blue-200); box-shadow: 0 0 0 4px rgba(144,202,249,.22); }
+
+/* Alternate treatment: no pill, just a rule + label — used to break up
+   the rhythm when a pill eyebrow appears in every section. */
+.eyebrow--tag {
+  background: none;
+  padding: 0 0 0 14px;
+  border-radius: 0;
+  position: relative;
+}
+.eyebrow--tag::before {
+  position: absolute;
+  left: 0; top: 50%;
+  width: 3px; height: 16px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  box-shadow: none;
+}
+
+/* Grid helpers */
+.grid       { display: grid; gap: 24px; }
+.grid-2     { grid-template-columns: repeat(2, 1fr); }
+.grid-3     { grid-template-columns: repeat(3, 1fr); }
+.grid-4     { grid-template-columns: repeat(4, 1fr); }
+.grid-auto  { grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
+
+/* ------------------------------------------------------------
+   5. UTILITIES
+   ------------------------------------------------------------ */
+.tc { text-align: center; }
+.tl { text-align: left; }
+.mb-0  { margin-bottom: 0 !important; }
+.mb-12 { margin-bottom: 12px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-40 { margin-bottom: 40px; }
+.mt-40 { margin-top: 40px; }
+.lead  { font-size: 1.08rem; line-height: 1.85; }
+.small { font-size: .88rem; }
+.no-scroll { overflow: hidden; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; top: -60px; left: 16px; z-index: 999;
+  background: var(--primary); color: #fff;
+  padding: 10px 18px; border-radius: 0 0 var(--r-sm) var(--r-sm);
+  transition: top var(--t);
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 3px solid rgba(33, 150, 243, .45);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Decorative blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.blob--a { width: 520px; height: 520px; background: rgba(144, 202, 249, .38); }
+.blob--b { width: 420px; height: 420px; background: rgba(33, 150, 243, .20); }
+
+/* ------------------------------------------------------------
+   6. RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 780px) {
+  .sec-head--split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .sec-head--split .sec-head__main { max-width: none; }
+  .sec-head__aside { max-width: none; }
+}
+@media (max-width: 700px) {
+  :root { --gutter: 18px; }
+  body  { font-size: 15px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .sec-head { margin-bottom: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   7. THEME SWATCHES (Admin panel accent picker)
+   Swaps the primary accent while keeping the same light
+   white/blue corporate palette family.
+   ------------------------------------------------------------ */
+:root[data-theme-swatch="deep"] {
+  --primary:      var(--blue-900);
+  --primary-dark: #0A3A82;
+  --grad-primary: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-900) 100%);
+  --shadow-blue:  0 14px 30px rgba(13, 71, 161, .38);
+}
+:root[data-theme-swatch="sky"] {
+  --primary:      var(--blue-300);
+  --primary-dark: var(--blue-600);
+  --grad-primary: linear-gradient(135deg, var(--blue-300) 0%, var(--blue-600) 100%);
+  --shadow-blue:  0 14px 30px rgba(100, 181, 246, .35);
+}
