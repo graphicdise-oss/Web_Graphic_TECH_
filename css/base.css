@@ -69,6 +69,9 @@
   /* Type */
   --font: 'Prompt', 'Noto Sans Thai', 'Sarabun', -apple-system, BlinkMacSystemFont,
           'Segoe UI', sans-serif;
+  /* Display face for headlines/numerals/wordmark — falls back to Thai body
+     face automatically per-glyph, so Thai text stays in --font. */
+  --font-display: 'Sora', var(--font);
 
   /* Layout */
   --max-w:   1240px;
@@ -86,6 +89,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 20px);
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -119,6 +124,7 @@ table   { border-collapse: collapse; width: 100%; }
    3. TYPOGRAPHY
    ------------------------------------------------------------ */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   color: var(--ink);
   font-weight: 600;
   line-height: 1.25;
@@ -130,6 +136,9 @@ h2 { font-size: clamp(1.75rem, 3.4vw, 2.75rem); font-weight: 700; line-height: 1
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 h4 { font-size: 1.1rem; }
 p  { color: var(--body); }
+
+/* Numerals read better in the display face — used for stats, prices, indices */
+.num-display { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
 
 strong, b { font-weight: 600; color: var(--ink-2); }
 
@@ -170,6 +179,25 @@ strong, b { font-weight: 600; color: var(--ink-2); }
 .sec-head h2         { margin-bottom: 18px; }
 .sec-head p          { font-size: 1.02rem; }
 
+/* Asymmetric variant: heading left, supporting copy set apart on the right —
+   used instead of sec-head--center where a centered block would just repeat
+   the same treatment as every other section. */
+.sec-head--split {
+  max-width: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+.sec-head--split .sec-head__main { max-width: 480px; }
+.sec-head--split h2 { margin-bottom: 0; }
+.sec-head__aside {
+  max-width: 360px;
+  padding-bottom: 4px;
+  border-left: 2px solid var(--line);
+  padding-left: 22px;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -178,7 +206,8 @@ strong, b { font-weight: 600; color: var(--ink-2); }
   background: var(--primary-soft);
   color: var(--primary-dark);
   border-radius: var(--r-pill);
-  font-size: .78rem;
+  font-family: var(--font-display);
+  font-size: .76rem;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -192,6 +221,23 @@ strong, b { font-weight: 600; color: var(--ink-2); }
 }
 .eyebrow--light { background: rgba(255,255,255,.14); color: #fff; }
 .eyebrow--light::before { background: var(--blue-200); box-shadow: 0 0 0 4px rgba(144,202,249,.22); }
+
+/* Alternate treatment: no pill, just a rule + label — used to break up
+   the rhythm when a pill eyebrow appears in every section. */
+.eyebrow--tag {
+  background: none;
+  padding: 0 0 0 14px;
+  border-radius: 0;
+  position: relative;
+}
+.eyebrow--tag::before {
+  position: absolute;
+  left: 0; top: 50%;
+  width: 3px; height: 16px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  box-shadow: none;
+}
 
 /* Grid helpers */
 .grid       { display: grid; gap: 24px; }
@@ -251,6 +297,15 @@ strong, b { font-weight: 600; color: var(--ink-2); }
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 780px) {
+  .sec-head--split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .sec-head--split .sec-head__main { max-width: none; }
+  .sec-head__aside { max-width: none; }
 }
 @media (max-width: 700px) {
   :root { --gutter: 18px; }

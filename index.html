@@ -7,7 +7,7 @@
 <title>Graphic TECH — Creative & Technology Studio | ที่ปรึกษาดีไซน์และเทคโนโลยีระดับมืออาชีพ</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap">
 
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -171,30 +171,34 @@
 
         <div class="hero__visual hero-anim hd-3">
           <div class="hero__stage">
-            <div class="hero-card hero-card--main">
-              <div class="browser-bar"><span></span><span></span><span></span></div>
-              <div class="browser-body">
-                <div class="mock-bar w-45"></div>
-                <div class="mock-bar w-90"></div>
-                <div class="mock-bar w-70"></div>
-                <div class="mock-chart">
-                  <i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i>
-                  <i style="height:80%"></i><i style="height:56%"></i><i style="height:70%"></i>
-                  <i style="height:44%"></i>
-                </div>
+            <svg class="hero__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6" aria-hidden="true">
+              <path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2z"/><path d="M12 22V12M21 6.9L12 12 3 6.9"/>
+            </svg>
+
+            <figure class="collage-card collage-card--a float-shape float-shape--sm" style="--r:-4deg">
+              <div class="collage-card__thumb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               </div>
-            </div>
-            <div class="hero-card hero-card--stat hero-card--stat-1 float-shape float-shape--sm">
-              <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></span>
-              <span><b>98%</b><span>ความพึงพอใจลูกค้า</span></span>
-            </div>
-            <div class="hero-card hero-card--stat hero-card--stat-2 float-shape float-shape--sm" style="--r:0deg">
-              <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-              <span><b>&lt;48 ชม.</b><span>ตอบกลับทุกคำปรึกษา</span></span>
-            </div>
-            <div class="hero-badge-float">
-              <span class="avatars"><span></span><span></span><span></span></span>
-              <small>150+ แบรนด์ไว้วางใจ</small>
+              <figcaption class="collage-card__tag">Kinto Coffee — Brand System<small>Branding · 2023</small></figcaption>
+            </figure>
+
+            <figure class="collage-card collage-card--b float-shape float-shape--sm" style="--r:5deg">
+              <div class="collage-card__thumb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <figcaption class="collage-card__tag">ArtSpace Gallery<small>Web Development</small></figcaption>
+            </figure>
+
+            <figure class="collage-card collage-card--c float-shape float-shape--sm" style="--r:3deg">
+              <div class="collage-card__thumb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <figcaption class="collage-card__tag">ReBank Mobile UX<small>UI/UX Design</small></figcaption>
+            </figure>
+
+            <div class="hero__collage-stat">
+              <span class="icon-tile icon-tile--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+              <span><b>150+</b><span>แบรนด์ไว้วางใจ</span></span>
             </div>
           </div>
         </div>
@@ -265,14 +269,17 @@
   <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
   <section class="section services" id="services">
     <div class="container">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow">What We Do</p>
-        <h2>บริการของเรา ครบวงจรทุกมิติ</h2>
-        <p>ตั้งแต่การวางกลยุทธ์ ออกแบบ ไปจนถึงพัฒนาระบบ เราดูแลทุกขั้นตอนด้วยทีมผู้เชี่ยวชาญเฉพาะทาง</p>
+      <div class="sec-head sec-head--split reveal">
+        <div class="sec-head__main">
+          <p class="eyebrow">What We Do</p>
+          <h2>บริการของเรา<br>ครบวงจรทุกมิติ</h2>
+        </div>
+        <p class="sec-head__aside">ตั้งแต่การวางกลยุทธ์ ออกแบบ ไปจนถึงพัฒนาระบบ เราดูแลทุกขั้นตอนด้วยทีมผู้เชี่ยวชาญเฉพาะทาง
+          ไม่ว่าธุรกิจของคุณจะอยู่ในอุตสาหกรรมใด</p>
       </div>
 
       <div class="grid grid-3">
-        <article class="service-card reveal d-1" data-page="service-uiux" tabindex="0" role="button" aria-label="UI/UX Design">
+        <article class="service-card service-card--featured reveal d-1" data-page="service-uiux" tabindex="0" role="button" aria-label="UI/UX Design">
           <span class="service-card__num">01</span>
           <span class="icon-tile">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -363,8 +370,8 @@
   <!-- ═══════════════════════ PORTFOLIO ═══════════════════════ -->
   <section class="section portfolio" id="portfolio">
     <div class="container">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow">Our Work</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow eyebrow--tag">Our Work</p>
         <h2>ผลงานที่ผ่านมาของเรา</h2>
         <p>ตัวอย่างส่วนหนึ่งจากผลงานที่เราภาคภูมิใจ ครอบคลุมหลากหลายอุตสาหกรรม</p>
       </div>
@@ -555,8 +562,8 @@
   <!-- ═══════════════════════ FAQ ═══════════════════════ -->
   <section class="section section--soft" id="faq">
     <div class="container container--narrow">
-      <div class="sec-head sec-head--center reveal">
-        <p class="eyebrow">FAQ</p>
+      <div class="sec-head reveal">
+        <p class="eyebrow eyebrow--tag">FAQ</p>
         <h2>คำถามที่พบบ่อย</h2>
         <p>ยังมีคำถามอื่นๆ ที่อยากรู้เพิ่มเติม? ทักหาทีมงานได้ทุกช่องทาง</p>
       </div>

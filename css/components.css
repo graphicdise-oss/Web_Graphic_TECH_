@@ -28,17 +28,6 @@
 }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-/* Sheen sweep — subtle premium detail */
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
-  transform: translateX(-120%);
-  transition: transform .7s var(--ease-out);
-}
-.btn:hover::after { transform: translateX(120%); }
-
 .btn-primary {
   background: var(--grad-primary);
   color: #fff;

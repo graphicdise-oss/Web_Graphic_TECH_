@@ -91,6 +91,7 @@
   line-height: 1.15;
 }
 .nav__logo-text b {
+  font-family: var(--font-display);
   font-size: 1.18rem;
   font-weight: 700;
   color: var(--ink);
@@ -629,7 +630,7 @@
   .footer__top { grid-template-columns: repeat(2, 1fr); gap: 38px; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1220px) {
   .nav__toggle { display: flex; }
   .nav__actions .btn { display: none; }
 
@@ -654,7 +655,8 @@
   .nav__mega {
     position: static;
     transform: none;
-    width: 100%;
+    width: calc(100% - 14px);
+    box-sizing: border-box;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -698,4 +700,12 @@
   .fab__label { display: none; }
   .admin-fab { left: 14px; bottom: 16px; width: 42px; height: 42px; }
   .admin-panel { left: 14px; bottom: 70px; width: calc(100vw - 28px); max-width: 300px; }
+}
+
+@media (max-width: 400px) {
+  .nav__logo-text small { display: none; }
+  .nav__logo-mark { width: 36px; height: 36px; }
+  .nav__logo-mark svg { width: 19px; height: 19px; }
+  .nav__logo-text b { font-size: 1.05rem; }
+  .nav__inner { gap: 10px; }
 }

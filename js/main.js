@@ -60,7 +60,7 @@
     if (!link || !mega) return;
 
     link.addEventListener('click', function (e) {
-      if (window.innerWidth > 900) return; /* desktop uses hover */
+      if (window.innerWidth > 1220) return; /* desktop uses hover */
       e.preventDefault();
       e.stopImmediatePropagation(); /* block the smooth-scroll handler on this same anchor */
       const isExpanded = item.classList.toggle('is-expanded');
@@ -187,9 +187,9 @@
     return PORTFOLIO_ITEMS.filter(function (item) { return item.category === activeFilter; });
   }
 
-  function renderPortfolioItem(item) {
+  function renderPortfolioItem(item, isFeaturedSpot) {
     const el = document.createElement('div');
-    el.className = 'portfolio-item reveal-scale';
+    el.className = 'portfolio-item reveal-scale' + (isFeaturedSpot ? ' span-2' : '');
     el.tabIndex = 0;
 
     const page = CATEGORY_PAGE_MAP[item.category] || '';
@@ -243,7 +243,11 @@
     const pageSize = typeof PORTFOLIO_PAGE_SIZE !== 'undefined' ? PORTFOLIO_PAGE_SIZE : 6;
     const batch = items.slice(rendered, rendered + pageSize);
 
-    batch.forEach(function (item) { grid.appendChild(renderPortfolioItem(item)); });
+    batch.forEach(function (item, i) {
+      const globalIndex = rendered + i;
+      const isFeaturedSpot = activeFilter === 'all' && globalIndex === 0;
+      grid.appendChild(renderPortfolioItem(item, isFeaturedSpot));
+    });
     rendered += batch.length;
     observeNewReveal(grid);
 
