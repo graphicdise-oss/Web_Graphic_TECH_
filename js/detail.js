@@ -49,7 +49,7 @@
       currentPage = page;
     } catch (err) {
       overlayContent.innerHTML = `
-        <div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
+        <div style="text-align:center;padding:60px 20px;color:var(--muted)">
           <p style="font-size:2rem;margin-bottom:16px">⚠️</p>
           <p>ไม่สามารถโหลดหน้านี้ได้ในขณะนี้</p>
           <p style="font-size:0.82rem;margin-top:8px;opacity:0.5">${err.message}</p>
