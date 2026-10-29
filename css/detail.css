@@ -1,0 +1,452 @@
+/* ============================================================
+   DETAIL.CSS — Graphic TECH
+   Scope: overlay panel content, /pages/*.html fragments
+          (loaded dynamically into .overlay-body)
+   Theme: Light / White-Blue Corporate Premium
+   ============================================================ */
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+.detail-header {
+  position: relative;
+  margin-bottom: 44px;
+  padding: 40px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, rgba(240, 247, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.detail-header::before {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  width: 300px;
+  height: 300px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="%230d47a1" stroke-width="2" stroke-dasharray="4 8" opacity="0.05"/><path d="M20 50 L80 50 M50 20 L50 80" stroke="%230d47a1" stroke-width="1" opacity="0.04"/></svg>') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+.detail-header > * {
+  position: relative;
+  z-index: 1;
+}
+.detail-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  background: var(--primary-soft);
+  border-radius: var(--r-pill);
+  font-size: .74rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.detail-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.detail-title {
+  font-size: clamp(1.9rem, 4.4vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.14;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+.detail-subtitle {
+  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+/* ============================================================
+   COVER IMAGE
+   ============================================================ */
+.detail-cover {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 44px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.detail-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.detail-cover-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, var(--blue-50) 0%, #fff 100%);
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  gap: 12px;
+}
+.detail-cover-placeholder svg {
+  width: 30px; height: 30px; color: var(--blue-300);
+}
+
+/* ============================================================
+   SECTION BLOCKS
+   ============================================================ */
+.detail-section { margin-bottom: 44px; }
+.detail-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.detail-section-title::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 22px;
+  background: var(--grad-primary);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.detail-body {
+  font-size: .96rem;
+  color: var(--body);
+  line-height: 1.85;
+}
+.detail-body p + p { margin-top: 14px; }
+.detail-body strong { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   FEATURE LIST / ICON LIST
+   ============================================================ */
+.detail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 4px;
+}
+.detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .93rem;
+  color: var(--body);
+  line-height: 1.7;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+}
+.detail-list li::before {
+  content: '';
+  flex-shrink: 0;
+  margin-top: 5px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--grad-primary);
+}
+.detail-list li strong { color: var(--ink); }
+
+/* ============================================================
+   STATS ROW
+   ============================================================ */
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 44px;
+}
+.detail-stat {
+  background: linear-gradient(150deg, var(--blue-50), #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 26px 18px;
+  text-align: center;
+}
+.detail-stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: -.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.detail-stat-label {
+  font-size: .78rem;
+  color: var(--muted);
+  letter-spacing: .03em;
+}
+
+/* ============================================================
+   PROCESS STEPS
+   ============================================================ */
+.detail-process {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+.detail-step {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+  position: relative;
+}
+.detail-step:last-child { padding-bottom: 0; }
+.detail-step::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 42px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.detail-step:last-child::before { display: none; }
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  border: 1px solid var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+.step-body { padding-top: 8px; }
+.step-title {
+  font-size: .97rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.step-desc {
+  font-size: .89rem;
+  color: var(--body);
+  line-height: 1.75;
+}
+
+/* ============================================================
+   TAG CHIPS
+   ============================================================ */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 4px;
+}
+.detail-tag {
+  font-size: .8rem;
+  letter-spacing: .02em;
+  padding: 7px 15px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--body);
+  white-space: nowrap;
+}
+.detail-tag.highlight {
+  background: var(--primary-soft);
+  border-color: var(--blue-200);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* ============================================================
+   ICON GRID (services/tools overview)
+   ============================================================ */
+.detail-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 4px;
+}
+.detail-icon-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px 22px;
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+}
+.detail-icon-card:hover {
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.dic-icon {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.dic-icon svg { width: 21px; height: 21px; }
+.dic-title {
+  font-size: .96rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.dic-desc {
+  font-size: .84rem;
+  color: var(--body);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   TEAM GRID (About page)
+   ============================================================ */
+.detail-team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 4px;
+}
+.team-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: box-shadow var(--t), transform var(--t);
+}
+.team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.team-avatar {
+  width: 100%;
+  height: 170px;
+  background: linear-gradient(150deg, var(--blue-50), #fff);
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.team-avatar-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar-placeholder svg {
+  width: 46px; height: 46px;
+  color: var(--blue-300);
+}
+.team-info { padding: 18px 20px; }
+.team-name {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.team-role {
+  font-size: .8rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ============================================================
+   CTA BLOCK (bottom of each page)
+   ============================================================ */
+.detail-cta {
+  margin-top: 52px;
+  padding: 42px 36px;
+  background: var(--grad-deep);
+  border-radius: var(--r-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.detail-cta::before {
+  content: '';
+  position: absolute;
+  top: -70px; left: 50%; transform: translateX(-50%);
+  width: 320px; height: 320px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.detail-cta h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  position: relative;
+}
+.detail-cta p {
+  font-size: .92rem;
+  color: rgba(255, 255, 255, .82);
+  margin-bottom: 24px;
+  position: relative;
+}
+.detail-cta .btn { position: relative; }
+
+/* ============================================================
+   PORTFOLIO SLIDER OVERRIDES
+   ============================================================ */
+.portfolio-slider {
+  aspect-ratio: 16/10;
+  border-radius: var(--r-md);
+}
+.portfolio-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: var(--surface-2);
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.detail-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 40px 0;
+}
+
+/* ============================================================
+   RESPONSIVE (overlay panel is already narrow on mobile)
+   ============================================================ */
+@media (max-width: 600px) {
+  .detail-stats       { grid-template-columns: 1fr; }
+  .detail-icon-grid   { grid-template-columns: 1fr; }
+  .detail-team        { grid-template-columns: 1fr; }
+  .detail-title       { font-size: 1.7rem; }
+  .detail-cover       { height: 180px; }
+  .detail-cta         { padding: 30px 22px; }
+}
+
+/* ============================================================
+   DETAIL CONTAINER (For standalone pages)
+   ============================================================ */
+.detail-container {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+

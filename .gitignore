@@ -1,0 +1,17 @@
+# Archives & Zips
+*.zip
+*.tar.gz
+*.rar
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

@@ -1,0 +1,132 @@
+/* ============================================================
+   ANIMATIONS.CSS — Graphic TECH
+   Keyframes + scroll-reveal utility classes used site-wide
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   SCROLL REVEAL
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.reveal-fade { opacity: 0; transition: opacity .8s var(--ease-out); }
+.reveal-fade.is-visible { opacity: 1; }
+
+.reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right { opacity: 0; transform: translateX(32px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale { opacity: 0; transform: scale(.92); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
+/* Stagger helpers */
+.d-1 { transition-delay: .08s; }
+.d-2 { transition-delay: .16s; }
+.d-3 { transition-delay: .24s; }
+.d-4 { transition-delay: .32s; }
+.d-5 { transition-delay: .40s; }
+.d-6 { transition-delay: .48s; }
+
+/* ------------------------------------------------------------
+   KEYFRAMES
+   ------------------------------------------------------------ */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fab-pulse {
+  0%   { transform: scale(1);   opacity: .55; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-16px); }
+}
+
+@keyframes float-y-sm {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50%      { transform: translateY(-10px) rotate(var(--r, 0deg)); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .35; }
+}
+
+@keyframes gradient-pan {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ping-ring {
+  0%   { transform: scale(.9); opacity: .7; }
+  80%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ------------------------------------------------------------
+   HERO-SPECIFIC ENTRANCE (choreographed, plays once on load)
+   ------------------------------------------------------------ */
+.hero-anim {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fade-in-up .8s var(--ease-out) forwards;
+}
+.hero-anim.hd-1 { animation-delay: .05s; }
+.hero-anim.hd-2 { animation-delay: .18s; }
+.hero-anim.hd-3 { animation-delay: .32s; }
+.hero-anim.hd-4 { animation-delay: .46s; }
+.hero-anim.hd-5 { animation-delay: .58s; }
+
+/* Floating decorative shapes in hero */
+.float-shape { animation: float-y 7s ease-in-out infinite; }
+.float-shape--slow { animation-duration: 10s; }
+.float-shape--sm { animation: float-y-sm 6s ease-in-out infinite; }
+
+/* Gradient text / bg pan (used sparingly) */
+.gradient-pan-bg {
+  background-size: 200% 200%;
+  animation: gradient-pan 12s ease infinite;
+}
+
+/* Skeleton shimmer (loading state) */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, #fff 37%, var(--surface-2) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

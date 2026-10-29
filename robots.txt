@@ -1,0 +1,7 @@
+# robots.txt for Graphic TECH
+User-agent: *
+Allow: /
+
+# Sitemap URL (กรุณาเปลี่ยนเป็นโดเมนจริงของคุณเมื่อขึ้น Production เช่น https://graphictech.co.th/sitemap.xml)
+Sitemap: https://graphictech.co.th/sitemap.xml
+
